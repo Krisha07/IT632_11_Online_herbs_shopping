@@ -56,8 +56,8 @@ const hospitalSchema = new mongoose.Schema({
   },
 
   hospital_status: {
-    type: String,
-    required: true,
+    type: Number,
+    default: 0,
   },
 
   hospital_dor: {
