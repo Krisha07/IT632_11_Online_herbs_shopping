@@ -47,7 +47,7 @@ const sellerSchema = new mongoose.Schema({
   },
   seller_dor: {
     type: Date,
-    required: true,
+    default: Date.now(),
   },
   tokens: [
     {

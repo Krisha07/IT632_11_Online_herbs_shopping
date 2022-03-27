@@ -4,31 +4,32 @@ const mongoose = require("mongoose");
 const { double, boolean } = require("webidl-conversions");
 
 const orderSchema = new mongoose.Schema({
-
-  order_detail: [{
-    type : {
+  order_detail: [
+    {
+      type: {
         product_ID: {
-            type: String,
-            required: true,
-          },
+          type: String,
+          required: true,
+        },
 
-          seller_ID: {
-            type: String,
-            required: true,
-          },
+        seller_ID: {
+          type: String,
+          required: true,
+        },
 
-          order_Qty: {
-            type: Number,
-            required: true,
-          },
+        order_Qty: {
+          type: Number,
+          required: true,
+        },
 
-          order_Status: {
-            type: boolean,
-            required: true,
-          }
+        order_Status: {
+          type: boolean,
+          required: true,
+        },
+      },
+      required: true,
     },
-    required: true,
-  }],
+  ],
 
   buyer_ID: {
     type: String,
@@ -37,7 +38,7 @@ const orderSchema = new mongoose.Schema({
 
   order_Date: {
     type: date,
-    required: true,
+    default: Date.now(),
   },
 
   order_Price: {
@@ -50,15 +51,10 @@ const orderSchema = new mongoose.Schema({
     required: true,
   },
 
- 
-
   order_Transaction_ID: {
     type: String,
     required: true,
   },
-
- 
-
 });
 
 module.exports = mongoose.model("ORDER", orderSchema);
